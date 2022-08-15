@@ -19,9 +19,9 @@ class MyApp extends StatelessWidget {
           title: const Text('Demo Hero'),
         ),
         body: const Center(
-          child: Text('💥Display data here💥')
-        )
-      )
+          child: Text('💥Display data here💥'),
+        ),
+      ),
     );
   }
 }
