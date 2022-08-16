@@ -18,7 +18,8 @@ class JsonReceiptRepository implements ReceiptRepository {
     // in this demo we know there will be receipts, so this first time loader
     // should work for this demo
     if (receipts.isEmpty) {
-      await _loadReceiptsFromJson(kReceiptsJsonPath);
+      final results = await _loadReceiptsFromJson(kReceiptsJsonPath);
+      receipts.addAll(results);
     }
     return receipts;
   }
@@ -50,6 +51,7 @@ class JsonReceiptRepository implements ReceiptRepository {
   }
 }
 
+/// Providers access to object implementing [ReceiptRepository] interface
 final receiptRepositoryProvider = Provider<ReceiptRepository>((ref) {
   return JsonReceiptRepository();
 });
