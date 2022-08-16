@@ -1,4 +1,5 @@
 import 'package:demo_hero_flutter/src/features/receipts/model/receipt.dart';
+import 'package:demo_hero_flutter/src/features/receipts/presentation/receipt_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -18,6 +19,11 @@ class ReceiptList extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         final receipt = data[index];
         return ListTile(
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ReceiptDetail(receipt.receiptNumber)),
+          ),
           tileColor: index % 2 == 0 ? Colors.grey[100] : Colors.grey[200],
           leading: CircleAvatar(
               backgroundColor: Colors.amber[200],
