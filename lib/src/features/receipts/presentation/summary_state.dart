@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class SummaryNotifier extends StateNotifier<AsyncValue<ReceiptsSummary?>> {
   SummaryNotifier() : super(const AsyncValue.data(null));
 
+  /// builds summary data in isolate
   Future<void> buildSummary(List<Receipt> data) async {
     state = const AsyncValue.loading();
     final result = await compute(buildSummaryData, data);
