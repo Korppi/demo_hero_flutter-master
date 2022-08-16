@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Shows all receipts in listview
-class ReceiptsList extends ConsumerWidget {
-  const ReceiptsList({Key? key}) : super(key: key);
+class ReceiptsListScreen extends ConsumerWidget {
+  const ReceiptsListScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

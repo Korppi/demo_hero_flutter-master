@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Demo Hero'),
         ),
-        body: const ReceiptsList(),
+        body: const ReceiptsListScreen(),
       ),
     );
   }
