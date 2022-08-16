@@ -23,5 +23,6 @@ At Receipthero we heavily utilize the following technologies:\
 ### Usage and development
 Ensure that your development environment is configured properly: ```flutter doctor``` \
 Install dependencies: ```flutter pub get``` \
+Generate freezed code:  ```flutter pub run build_runner build --delete-conflicting-outputs``` \
 Start hacking: ```flutter run```
 
