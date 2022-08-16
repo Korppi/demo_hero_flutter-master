@@ -1,7 +1,9 @@
+import 'package:demo_hero_flutter/src/features/receipts/presentation/receipts_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -18,9 +20,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Demo Hero'),
         ),
-        body: const Center(
-          child: Text('💥Display data here💥'),
-        ),
+        body: const ReceiptsList(),
       ),
     );
   }
