@@ -31,16 +31,9 @@ class JsonReceiptRepository implements ReceiptRepository {
 
   /// Loads data from json and returns list of Receipts
   Future<List<Receipt>> _loadReceiptsFromJson(String pathToJson) async {
-    // * some notes about performance. after running some test it looks like
-    // * jsonDecode takes ~1.5sec time to complete (and thats why i use compute function)
-    // * jsonData.map took time ~0.2 sec time so it is quite alright but with bigger
-    // * dataload it could be good to but inside compute as well
-
     final jsonString = await _loadJsonData(pathToJson);
     // spawn isolate for heavy decoding
-    final jsonData = await compute(jsonDecode, jsonString) as List<dynamic>;
-    final results =
-        jsonData.map((receiptData) => Receipt.fromJson(receiptData)).toList();
+    final results = await compute(buildReceiptListFromJsonData, jsonString);
     return results;
   }
 
@@ -49,6 +42,15 @@ class JsonReceiptRepository implements ReceiptRepository {
     final jsonString = await rootBundle.loadString(pathToJson);
     return jsonString;
   }
+}
+
+/// Used in isolate to do heavy parsing
+List<Receipt> buildReceiptListFromJsonData(String jsonString) {
+  final jsonData = jsonDecode(jsonString) as List<dynamic>;
+
+  final results =
+      jsonData.map((receiptData) => Receipt.fromJson(receiptData)).toList();
+  return results;
 }
 
 /// Providers access to object implementing [ReceiptRepository] interface
