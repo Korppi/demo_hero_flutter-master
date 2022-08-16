@@ -38,7 +38,7 @@ class ReceiptDetailListview extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(right: 16),
+                  padding: const EdgeInsets.only(right: 16),
                   child: Text(
                       'Total price: ${receipt.totalPriceIncVAT} ${receipt.currencyISOCode}'),
                 ),
