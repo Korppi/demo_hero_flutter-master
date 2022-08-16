@@ -1,4 +1,4 @@
-import 'package:demo_hero_flutter/src/features/receipts/presentation/receipts_list.dart';
+import 'package:demo_hero_flutter/src/features/receipts/presentation/receipts_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
