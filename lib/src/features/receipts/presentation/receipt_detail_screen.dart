@@ -21,7 +21,36 @@ class ReceiptDetail extends ConsumerWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text('id is $id'),
+                  Text(receipt.merchant.name,
+                      style: Theme.of(context).textTheme.headlineSmall),
+                  Text(receipt.receiptNumber),
+                  const Divider(
+                    thickness: 4,
+                  ),
+                  for (var product in receipt.products)
+                    ListTile(
+                      title: Text(product.name),
+                      subtitle: Text('Quantity: ${product.quantity}'),
+                      trailing: Text(
+                          '${product.totalAmountIncVAT} ${receipt.currencyISOCode}'),
+                    ),
+                  const Divider(
+                    thickness: 4,
+                  ),
+                  Container(
+                    color: Colors.amber[200],
+                    height: 40,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(right: 16),
+                          child: Text(
+                              'Total price: ${receipt.totalPriceIncVAT} ${receipt.currencyISOCode}'),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             );
