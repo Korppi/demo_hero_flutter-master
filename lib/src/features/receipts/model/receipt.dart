@@ -12,6 +12,8 @@ class Receipt with _$Receipt {
     required Merchant merchant,
     required DateTime receiptTimeStamp,
     required List<Product> products,
+    required int totalPriceIncVAT,
+    required String currencyISOCode,
   }) = _Receipt;
 
   factory Receipt.fromJson(Map<String, dynamic> json) =>
