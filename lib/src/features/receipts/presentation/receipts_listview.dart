@@ -1,5 +1,5 @@
 import 'package:demo_hero_flutter/src/features/receipts/model/receipt.dart';
-import 'package:demo_hero_flutter/src/features/receipts/presentation/receipt_detail_screen.dart';
+import 'package:demo_hero_flutter/src/features/receipts/presentation/receipt_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -16,27 +16,18 @@ class ReceiptList extends StatelessWidget {
   Widget build(BuildContext context) {
     // ListView.builder builds ListTiles only when needed and not all at once
     return ListView.builder(
+      itemCount: data.length,
+      prototypeItem: ReceiptListTile(
+        receipt: data.first,
+        dateFormat: dateFormat,
+        index: 1,
+      ),
       itemBuilder: (BuildContext context, int index) {
         final receipt = data[index];
-        return ListTile(
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => ReceiptDetail(receipt.receiptNumber)),
-          ),
-          tileColor: index % 2 == 0 ? Colors.grey[100] : Colors.grey[200],
-          leading: CircleAvatar(
-              backgroundColor: Colors.amber[200],
-              child: Text(receipt.merchant.name.substring(0, 1))),
-          title: Text(receipt.merchant.name),
-          subtitle: Text('${receipt.products.length} products'),
-          trailing: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text(dateFormat.format(receipt.receiptTimeStamp)),
-              Text('${receipt.totalPriceIncVAT} ${receipt.currencyISOCode}'),
-            ],
-          ),
+        return ReceiptListTile(
+          receipt: receipt,
+          dateFormat: dateFormat,
+          index: index,
         );
       },
     );
