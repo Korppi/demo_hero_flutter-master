@@ -1,3 +1,4 @@
+import 'package:demo_hero_flutter/src/utils/helpers.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'product.freezed.dart';
@@ -8,7 +9,12 @@ class Product with _$Product {
   const factory Product({
     required String name,
     required String quantity,
-    required int totalAmountIncVAT,
+    // ignore: invalid_annotation_target
+    @JsonKey(
+      name: 'totalAmountIncVAT',
+      fromJson: totalPriceFromJson,
+    )
+        required double totalAmountIncVAT,
   }) = _Product;
 
   factory Product.fromJson(Map<String, dynamic> json) =>

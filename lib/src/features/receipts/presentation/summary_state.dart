@@ -19,8 +19,8 @@ class SummaryNotifier extends StateNotifier<AsyncValue<ReceiptsSummary?>> {
 ///
 /// Highest and lowest are both only in EUR for this demo.
 ReceiptsSummary buildSummaryData(List<Receipt> data) {
-  int highest = -1;
-  int lowest = -1;
+  double highest = -1;
+  double lowest = -1;
   for (var receipt in data) {
     if (receipt.currencyISOCode == 'EUR') {
       if (highest == -1 || highest < receipt.totalPriceIncVAT) {

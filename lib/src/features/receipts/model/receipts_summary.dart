@@ -7,8 +7,8 @@ part 'receipts_summary.g.dart';
 class ReceiptsSummary with _$ReceiptsSummary {
   const factory ReceiptsSummary({
     @Default(0) int receiptCount,
-    @Default(0) int highestCost,
-    @Default(0) int lowestCost,
+    @Default(0) double highestCost,
+    @Default(0) double lowestCost,
   }) = _ReceiptsSummary;
 
   factory ReceiptsSummary.fromJson(Map<String, dynamic> json) =>
