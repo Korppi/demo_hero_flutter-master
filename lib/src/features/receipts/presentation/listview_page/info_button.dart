@@ -1,6 +1,6 @@
 import 'package:demo_hero_flutter/src/features/receipts/model/receipts_summary.dart';
-import 'package:demo_hero_flutter/src/features/receipts/presentation/receipts_list_screen.dart';
-import 'package:demo_hero_flutter/src/features/receipts/presentation/summary_state.dart';
+import 'package:demo_hero_flutter/src/features/receipts/presentation/listview_page/receipts_list_screen.dart';
+import 'package:demo_hero_flutter/src/features/receipts/presentation/listview_page/summary_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

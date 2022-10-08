@@ -1,6 +1,6 @@
 import 'package:demo_hero_flutter/src/features/receipts/data/json_receipt_repository.dart';
 import 'package:demo_hero_flutter/src/features/receipts/model/receipt.dart';
-import 'package:demo_hero_flutter/src/features/receipts/presentation/receipts_listview.dart';
+import 'package:demo_hero_flutter/src/features/receipts/presentation/listview_page/receipts_listview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

@@ -1,5 +1,5 @@
 import 'package:demo_hero_flutter/src/features/receipts/model/receipt.dart';
-import 'package:demo_hero_flutter/src/features/receipts/presentation/receipt_detail_screen.dart';
+import 'package:demo_hero_flutter/src/features/receipts/presentation/details_page/receipt_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
